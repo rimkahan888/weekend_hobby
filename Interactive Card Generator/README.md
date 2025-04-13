@@ -36,3 +36,15 @@ The built-in tutorial covers:
 4. **Styling interactive buttons** with hover effects
 5. **Customization techniques** for unique designs
 
+## Code Example
+
+Here's a basic example of what the generator produces:
+
+```html
+<div class="bg-white border border-gray-200 shadow-md rounded-lg p-6 max-w-sm mx-auto">
+    <h3 class="text-xl font-bold mb-2">Card Title</h3>
+    <p class="text-gray-600 mb-4">This is some card content.</p>
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+        Learn More
+    </button>
+</div>
