@@ -183,4 +183,49 @@ Learn More
         </div>
     </div>
 
-   
+ <script>
+        // Function to update the card preview and code
+        function updateCard() {
+            // Get values from inputs
+            const title = document.getElementById('cardTitle').value;
+            const content = document.getElementById('cardContent').value;
+            const buttonText = document.getElementById('cardButton').value;
+            const color = document.getElementById('cardColor').value;
+            const border = document.getElementById('cardBorder').value;
+            const shadow = document.getElementById('cardShadow').value;
+            
+            // Generate the card HTML
+            const cardHTML = `
+                <div class="${color} ${border} ${shadow} rounded-lg p-6 max-w-sm mx-auto">
+                    <h3 class="text-xl font-bold mb-2">${title}</h3>
+                    <p class="text-gray-600 mb-4">${content}</p>
+                    <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                        ${buttonText}
+                    </button>
+                </div>
+            `;
+            
+            // Update the preview
+            document.getElementById('cardPreview').innerHTML = cardHTML;
+            
+            // Update the code output (with proper escaping)
+            const escapedHTML = cardHTML
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+                
+            document.getElementById('htmlCode').textContent = escapedHTML;
+        }
+        
+        // Add event listeners to all inputs
+        document.querySelectorAll('input, select, textarea').forEach(element => {
+            element.addEventListener('input', updateCard);
+        });
+        
+        // Initialize the card
+        updateCard();
+    </script>
+</body>
+</html>   
