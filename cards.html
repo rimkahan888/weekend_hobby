@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Card Horizontal Layout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-7xl mx-auto"> <!-- Wider container to fit 3 max-w-md cards -->
+        <h1 class="text-3xl font-bold text-center mb-8">3 Card Horizontal Layout</h1>
+        
+        <!-- Card Container -->
+        <div class="flex flex-col md:flex-row gap-6 justify-center">
+            <!-- Card 1 -->
+            <div class="bg-white border border-gray-200 shadow-md rounded-lg p-6 max-w-md w-full">
+                <h3 class="text-xl font-bold mb-2">Card Title 1</h3>
+                <p class="text-gray-600 mb-4">This card has max-w-md (448px) width but will shrink if needed to fit 3 in a row.</p>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                    Action 1
+                </button>
+            </div>
+            
+            <!-- Card 2 -->
+            <div class="bg-white border border-gray-200 shadow-md rounded-lg p-6 max-w-md w-full">
+                <h3 class="text-xl font-bold mb-2">Card Title 2</h3>
+                <p class="text-gray-600 mb-4">All cards have identical max-width but will share the row space equally.</p>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                    Action 2
+                </button>
+            </div>
+            
+            <!-- Card 3 -->
+            <div class="bg-white border border-gray-200 shadow-md rounded-lg p-6 max-w-md w-full">
+                <h3 class="text-xl font-bold mb-2">Card Title 3</h3>
+                <p class="text-gray-600 mb-4">The flexbox container ensures they stay in one row on desktop.</p>
+                <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors">
+                    Action 3
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
