@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind CSS Card Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl font-bold text-center mb-8">Tailwind CSS Card Generator</h1>
+        
+        <!-- Card Generator Controls -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-xl font-semibold mb-4">Customize Your Card</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Card Content -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Title</label>
+                    <input id="cardTitle" type="text" value="Card Title" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4">
+                    
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Content</label>
+                    <textarea id="cardContent" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4 h-24">This is a sample card content. You can customize it using the controls on this panel.</textarea>
+                    
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Button Text</label>
+                    <input id="cardButton" type="text" value="Learn More" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                </div>
+                
+                <!-- Card Styling -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Card Color</label>
+                    <select id="cardColor" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4">
+                        <option value="bg-white">White</option>
+                        <option value="bg-blue-50">Light Blue</option>
+                        <option value="bg-gray-50">Light Gray</option>
+                        <option value="bg-green-50">Light Green</option>
+                        <option value="bg-indigo-50">Light Indigo</option>
+                    </select>
+                    
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Border</label>
+                    <select id="cardBorder" class="w-full px-3 py-2 border border-gray-300 rounded-md mb-4">
+                        <option value="border border-gray-200">Thin Gray</option>
+                        <option value="border-2 border-blue-200">Thick Blue</option>
+                        <option value="border border-gray-300">Medium Gray</option>
+                        <option value="border-0">No Border</option>
+                    </select>
+                    
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Shadow</label>
+                    <select id="cardShadow" class="w-full px-3 py-2 border border-gray-300 rounded-md">
+                        <option value="shadow-sm">Small</option>
+                        <option value="shadow-md" selected>Medium</option>
+                        <option value="shadow-lg">Large</option>
+                        <option value="shadow-xl">Extra Large</option>
+                        <option value="shadow-none">None</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Generated Card Preview -->
+        <div class="text-center mb-8">
+            <h2 class="text-xl font-semibold mb-4">Card Preview</h2>
+            <div id="cardPreview" class="inline-block text-left">
+                <!-- Card will be generated here -->
+            </div>
+        </div>
+        
+        <!-- HTML Code Output -->
+        <div class="bg-gray-800 rounded-lg p-6 mb-8">
+            <h2 class="text-xl font-semibold text-white mb-4">HTML Code</h2>
+            <pre id="htmlCode" class="bg-gray-900 p-4 rounded text-gray-300 overflow-x-auto text-sm"></pre>
+        </div>
+        
+        <!-- Step-by-Step Tutorial -->
+        <div class="bg-white rounded-lg shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-6">Step-by-Step Tutorial: Creating Cards with Tailwind CSS</h2>
+            
+            <div class="space-y-8">
+                <!-- Step 1 -->
+                <div>
+                    <h3 class="text-xl font-semibold mb-2 flex items-center">
+                        <span class="bg-blue-500 text-white rounded-full w-8 h-8 flex items-center justify-center mr-3">1</span>
+                        Set Up Your HTML File
+                    </h3>
+                    <p class="text-gray-700 mb-3">Start by creating a basic HTML file and include Tailwind CSS via CDN:</p>
+                    <pre class="bg-gray-100 p-3 rounded text-sm overflow-x-auto mb-3">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Card&lt;/title&gt;
+    &lt;script src="https://cdn.tailwindcss.com"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Your card will go here --&gt;
+&lt;/body&gt;
