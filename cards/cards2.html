@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3 Card Horizontal Layout with Hover Effects</title>
+    <title>3 Card Horizontal Layout</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Enable custom animations in Tailwind -->
+    
+    <!-- CARD2 IMPROVEMENTS: Custom animations config -->
     <script>
         tailwind.config = {
             theme: {
@@ -27,34 +28,40 @@
 </head>
 <body class="bg-gray-100 p-8">
     <div class="max-w-7xl mx-auto">
-        <h1 class="text-3xl font-bold text-center mb-8">Interactive Card Layout</h1>
+        <h1 class="text-3xl font-bold text-center mb-8">3 Card Horizontal Layout</h1>
         
         <!-- Card Container -->
         <div class="flex flex-col md:flex-row gap-8 justify-center">
-            <!-- Card 1 -->
+            
+            <!-- CARD2 IMPROVEMENTS START: Enhanced Card 1 with hover effects -->
             <div class="group bg-white border border-gray-200 shadow-md rounded-lg p-6 max-w-md w-full 
                       hover:shadow-lg hover:-translate-y-2 transition-all duration-300 ease-in-out
                       hover:border-blue-300 hover:bg-blue-50">
                 <div class="flex items-center mb-4">
+                    <!-- CARD2: Added icon with animation -->
                     <div class="bg-blue-100 p-3 rounded-full mr-4 group-hover:animate-pulse-slow">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                     </div>
+                    <!-- CARD2: Added hover text color change -->
                     <h3 class="text-xl font-bold text-gray-800 group-hover:text-blue-600">Card Title 1</h3>
                 </div>
-                <p class="text-gray-600 mb-4 group-hover:text-gray-800">Hover over me! I'll elevate and change appearance.</p>
+                <p class="text-gray-600 mb-4 group-hover:text-gray-800">This card has max-w-md (448px) width but will shrink if needed.</p>
+                <!-- CARD2: Enhanced button with animation -->
                 <button class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded transition-colors 
                              group-hover:animate-float">
                     Learn More →
                 </button>
             </div>
+            <!-- CARD2 IMPROVEMENTS END -->
             
-            <!-- Card 2 -->
+            <!-- CARD2 IMPROVEMENTS START: Enhanced Card 2 -->
             <div class="group bg-white border border-gray-200 shadow-md rounded-lg p-6 max-w-md w-full
                       hover:shadow-lg hover:-translate-y-2 transition-all duration-300 ease-in-out
                       hover:border-green-300 hover:bg-green-50">
                 <div class="flex items-center mb-4">
+                    <!-- CARD2: Different icon with rotation -->
                     <div class="bg-green-100 p-3 rounded-full mr-4 group-hover:rotate-12 transition-transform">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -62,18 +69,21 @@
                     </div>
                     <h3 class="text-xl font-bold text-gray-800 group-hover:text-green-600">Card Title 2</h3>
                 </div>
-                <p class="text-gray-600 mb-4 group-hover:text-gray-800">Each card has unique hover effects while keeping consistency.</p>
+                <p class="text-gray-600 mb-4 group-hover:text-gray-800">All cards have identical max-width but unique hover effects.</p>
+                <!-- CARD2: Scale animation on button -->
                 <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors
                              group-hover:scale-105">
                     Get Started ↑
                 </button>
             </div>
+            <!-- CARD2 IMPROVEMENTS END -->
             
-            <!-- Card 3 -->
+            <!-- CARD2 IMPROVEMENTS START: Enhanced Card 3 -->
             <div class="group bg-white border border-gray-200 shadow-md rounded-lg p-6 max-w-md w-full
                       hover:shadow-lg hover:-translate-y-2 transition-all duration-300 ease-in-out
                       hover:border-purple-300 hover:bg-purple-50">
                 <div class="flex items-center mb-4">
+                    <!-- CARD2: Third unique icon -->
                     <div class="bg-purple-100 p-3 rounded-full mr-4 group-hover:animate-pulse">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-purple-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
@@ -82,11 +92,13 @@
                     <h3 class="text-xl font-bold text-gray-800 group-hover:text-purple-600">Card Title 3</h3>
                 </div>
                 <p class="text-gray-600 mb-4 group-hover:text-gray-800">Professional animations without JavaScript!</p>
+                <!-- CARD2: Gradient button effect -->
                 <button class="bg-purple-500 hover:bg-purple-600 text-white px-4 py-2 rounded transition-colors
                              group-hover:bg-gradient-to-r from-purple-500 to-pink-500">
                     Contact Us ✉
                 </button>
             </div>
+            <!-- CARD2 IMPROVEMENTS END -->
         </div>
     </div>
 </body>
