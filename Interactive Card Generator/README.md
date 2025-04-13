@@ -26,3 +26,9 @@ An interactive tool that generates customizable cards using Tailwind CSS, comple
 4. **Copy** the generated HTML code for use in your projects
 5. **Learn** from the step-by-step tutorial at the bottom of the page
 
+## Tutorial Overview
+
+The built-in tutorial covers:
+
+1. **Setting up your HTML file** with Tailwind CSS
+2. **Creating the card container** with basic styling
