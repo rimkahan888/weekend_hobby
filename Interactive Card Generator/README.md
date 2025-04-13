@@ -32,3 +32,7 @@ The built-in tutorial covers:
 
 1. **Setting up your HTML file** with Tailwind CSS
 2. **Creating the card container** with basic styling
+3. **Adding card content** with proper spacing
+4. **Styling interactive buttons** with hover effects
+5. **Customization techniques** for unique designs
+
