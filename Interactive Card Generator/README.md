@@ -14,3 +14,12 @@ An interactive tool that generates customizable cards using Tailwind CSS, comple
 - 📚 **Built-in Tutorial**: Learn how to create cards with Tailwind CSS
 
 
+## How to Use
+
+1. **Clone or Download** the repository
+2. **Open** `index.html` in your browser
+3. **Customize** your card using the controls:
+   - Edit text content (title, body, button)
+   - Select background color
+   - Choose border style
+   - Adjust shadow intensity
