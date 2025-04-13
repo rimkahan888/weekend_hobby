@@ -23,3 +23,6 @@ An interactive tool that generates customizable cards using Tailwind CSS, comple
    - Select background color
    - Choose border style
    - Adjust shadow intensity
+4. **Copy** the generated HTML code for use in your projects
+5. **Learn** from the step-by-step tutorial at the bottom of the page
+
