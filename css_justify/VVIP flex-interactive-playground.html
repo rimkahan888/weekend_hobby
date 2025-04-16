@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Flexbox Playground</title>
+    <!-- Load Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Configure Tailwind with custom colors that match the original design -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3498db',    // Blue for primary buttons
+                        secondary: '#2ecc71',  // Green for secondary elements
+                        accent: '#e74c3c',     // Red for active/accent elements
+                        dark: '#2c3e50',       // Dark blue for backgrounds
+                        light: '#ecf0f1',      // Light gray for light backgrounds
+                        border: '#bdc3c7',     // Border color
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Custom style for active buttons - this makes selected buttons visually distinct -->
+    <style>
+        .control-btn.active {
+            background-color: #e74c3c !important; /* Red accent color */
+            box-shadow: 0 0 5px rgba(231, 76, 60, 0.5); /* Subtle glow effect */
+            transform: translateY(-2px); /* Slight raise effect */
+        }
+    </style>
+</head>
+<body class="font-sans leading-relaxed text-dark bg-[#f9f9f9] p-5">
+    <!-- Main container with max width -->
+    <div class="max-w-[1000px] mx-auto">
+        <!-- Header section with title and description -->
+        <header class="text-center mb-8 p-5 bg-dark text-light rounded-xl">
+            <h1 class="mb-2.5 text-2xl font-bold">Interactive Flexbox Playground</h1>
+            <p>Experiment with different flex properties to see how they affect layout</p>
+        </header>
+        
+        <!-- Controls panel - contains all the buttons to manipulate flex properties -->
+        <div class="flex justify-center flex-wrap gap-2.5 mb-8 p-4 bg-light rounded-xl shadow-md">
+            <!-- justify-content control section -->
+            <div class="mb-5">
+                <h3 class="mb-2.5 text-center">justify-content</h3>
+                <div>
+                    <!-- Each button has data-value attribute that will be used by JavaScript -->
+                    <!-- The 'active' class marks the currently selected option -->
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn justify-btn active" data-value="flex-start">flex-start</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn justify-btn" data-value="flex-end">flex-end</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn justify-btn" data-value="center">center</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn justify-btn" data-value="space-between">space-between</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn justify-btn" data-value="space-around">space-around</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn justify-btn" data-value="space-evenly">space-evenly</button>
+                </div>
+            </div>
+            
+            <!-- flex-direction control section -->
+            <div class="mb-5">
+                <h3 class="mb-2.5 text-center">flex-direction</h3>
+                <div>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn direction-btn active" data-value="row">row</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn direction-btn" data-value="row-reverse">row-reverse</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn direction-btn" data-value="column">column</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn direction-btn" data-value="column-reverse">column-reverse</button>
+                </div>
+            </div>
+            
+            <!-- align-items control section -->
+            <div class="mb-5">
+                <h3 class="mb-2.5 text-center">align-items</h3>
+                <div>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn align-btn active" data-value="stretch">stretch</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn align-btn" data-value="flex-start">flex-start</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn align-btn" data-value="flex-end">flex-end</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn align-btn" data-value="center">center</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn align-btn" data-value="baseline">baseline</button>
+                </div>
+            </div>
+            
+            <!-- flex-wrap control section -->
+            <div class="mb-5">
+                <h3 class="mb-2.5 text-center">flex-wrap</h3>
+                <div>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn wrap-btn active" data-value="nowrap">nowrap</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn wrap-btn" data-value="wrap">wrap</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn wrap-btn" data-value="wrap-reverse">wrap-reverse</button>
+                </div>
+            </div>
+            
+            <!-- Number of cards control section -->
+            <div class="mb-5">
+                <h3 class="mb-2.5 text-center">Cards</h3>
+                <div>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn cards-btn active" data-value="3">3 Cards</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn cards-btn" data-value="5">5 Cards</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn cards-btn" data-value="8">8 Cards</button>
+                </div>
+            </div>
+            
+            <!-- Card size control section -->
+            <div class="mb-5">
+                <h3 class="mb-2.5 text-center">Card Size</h3>
+                <div>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn size-btn active" data-value="equal">Equal Size</button>
+                    <button class="px-4 py-2.5 bg-primary text-white border-none rounded hover:bg-[#2980b9] hover:-translate-y-0.5 transition-all duration-200 ease-in-out cursor-pointer text-sm control-btn size-btn" data-value="different">Different Sizes</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- CSS Display Panel - This shows the current CSS properties being applied -->
+        <!-- This is the section you're particularly interested in -->
+        <div class="bg-dark text-light p-4 rounded-3xl mb-8 info-panel">
+            <h3 class="mb-2.5 border-b border-light pb-1.5">Current CSS</h3>
+            <!-- This div contains the formatted CSS code display -->
+            <div class="font-mono bg-white/10 p-2.5 rounded-3xl mt-2.5 leading-7 current-settings">
+                .flex-container {<br>
+                <!-- Each property is styled differently for better readability -->
+                <!-- The property names are styled in orange -->
+                &nbsp;&nbsp;<span class="text-[#f39c12] property">display:</span> <span class="text-[#2ecc71] value">flex</span>;<br>
+                <!-- The values have IDs so JavaScript can update them dynamically -->
+                &nbsp;&nbsp;<span class="text-[#f39c12] property">flex-direction:</span> <span id="direction-value" class="text-[#2ecc71] value">row</span>;<br>
+                &nbsp;&nbsp;<span class="text-[#f39c12] property">flex-wrap:</span> <span id="wrap-value" class="text-[#2ecc71] value">nowrap</span>;<br>
+                &nbsp;&nbsp;<span class="text-[#f39c12] property">justify-content:</span> <span id="justify-value" class="text-[#2ecc71] value">flex-start</span>;<br>
+                &nbsp;&nbsp;<span class="text-[#f39c12] property">align-items:</span> <span id="align-value" class="text-[#2ecc71] value">stretch</span>;<br>
+                }
+            </div>
+        </div>
+        
+        <!-- Flex Container - This is where the visual demonstration happens -->
+        <!-- All the flex properties are applied to this container -->
+        <div id="flex-container" class="min-h-[300px] bg-gradient-to-r from-green-900 to-amber-300 border-2 border-border rounded-xl p-5 mb-8 transition-all duration-300 ease-in-out shadow-md flex flex-row flex-nowrap justify-start items-stretch content-stretch gap-2.5">
+            <!-- Individual cards that will be affected by the flex properties -->
+            <div class="p-5 rounded-2xl text-white min-w-[120px] flex flex-col justify-center items-center font-bold shadow transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-[#e74c3c]">
+                <div class="text-2xl mb-2.5 card-number">1</div>
+                <div class="text-xs opacity-80 card-size">120px</div>
+            </div>
+            <div class="p-5 rounded-2xl text-white min-w-[120px] flex flex-col justify-center items-center font-bold shadow transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-[#3498db]">
+                <div class="text-2xl mb-2.5 card-number">2</div>
+                <div class="text-xs opacity-80 card-size">120px</div>
+            </div>
+            <div class="p-5 rounded-2xl text-white min-w-[120px] flex flex-col justify-center items-center font-bold shadow transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg bg-[#2ecc71]">
+                <div class="text-2xl mb-2.5 card-number">3</div>
+                <div class="text-xs opacity-80 card-size">120px</div>
+            </div>
+        </div>
+        
+        <!-- Explanation panel - provides educational content about the current property -->
+        <div class="bg-[rgba(46,204,113,0.1)] border-l-4 border-secondary p-4 mt-5 rounded-r-lg">
+            <h4 class="text-secondary mb-2.5">About justify-content</h4>
+            <p>The <code>justify-content</code> property aligns flex items along the main axis of the current line of the flex container. It helps distribute extra free space leftover when either all the flex items on a line are inflexible, or are flexible but have reached their maximum size.</p>
+            
+            <h4 class="text-secondary mb-2.5 mt-5">Values explained:</h4>
+            <ul class="list-disc pl-5">
+                <li><strong>flex-start</strong>: Items are packed toward the start of the flex direction.</li>
+                <li><strong>flex-end</strong>: Items are packed toward the end of the flex direction.</li>
+                <li><strong>center</strong>: Items are centered along the line.</li>
+                <li><strong>space-between</strong>: Items are evenly distributed in the line; first item is on the start line, last item on the end line.</li>
+                <li><strong>space-around</strong>: Items are evenly distributed with equal space around them. Note that visually the spaces aren't equal, since all items have equal space on both sides.</li>
+                <li><strong>space-evenly</strong>: Items are distributed so that the spacing between any two adjacent alignment subjects, as well as the space to the edges, is the same.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer class="text-center mt-12 pt-5 border-t border-border text-[#7f8c8d]">
+        Interactive Flexbox Playground - Experiment with CSS Flexbox properties
+    </footer>
+
+
+
+
+
+
+<!--bg-[rgba(46,204,113,0.1)]-->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get reference to the flex container that will be manipulated
+            const flexContainer = document.getElementById('flex-container');
+            
+            // Get references to the spans that display the current CSS values
+            const directionValue = document.getElementById('direction-value');
+            const wrapValue = document.getElementById('wrap-value');
+            const justifyValue = document.getElementById('justify-value');
+            const alignValue = document.getElementById('align-value');
+            
+            // === BUTTON EVENT HANDLERS ===
+            
+            // Justify Content Controls
+            const justifyBtns = document.querySelectorAll('.justify-btn');
+            justifyBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons in this group
+                    justifyBtns.forEach(b => b.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Apply the selected value to the flex container
+                    // This directly modifies the inline style of the container
+                    const value = this.getAttribute('data-value');
+                    flexContainer.style.justifyContent = value;
+                    
+                    // Update the info panel text to show the current value
+                    justifyValue.textContent = value;
+                });
+            });
+            
+            // Direction Controls - works the same way as justify-content
+            const directionBtns = document.querySelectorAll('.direction-btn');
+            directionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    directionBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const value = this.getAttribute('data-value');
+                    flexContainer.style.flexDirection = value;
+                    
+                    directionValue.textContent = value;
+                });
+            });
+            
+            // Align Items Controls
+            const alignBtns = document.querySelectorAll('.align-btn');
+            alignBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    alignBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const value = this.getAttribute('data-value');
+                    flexContainer.style.alignItems = value;
+                    
+                    alignValue.textContent = value;
+                });
+            });
+            
+            // Flex Wrap Controls
+            const wrapBtns = document.querySelectorAll('.wrap-btn');
+            wrapBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    wrapBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const value = this.getAttribute('data-value');
+                    flexContainer.style.flexWrap = value;
+                    
+                    wrapValue.textContent = value;
+                });
+            });
+            
+            // Number of Cards Controls
+            const cardsBtns = document.querySelectorAll('.cards-btn');
+            cardsBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    cardsBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Get the number of cards from the data-value attribute
+                    const value = parseInt(this.getAttribute('data-value'));
+                    // Call function to update the cards
+                    updateCardCount(value);
+                });
+            });
+            
+            // Card Size Controls
+            const sizeBtns = document.querySelectorAll('.size-btn');
+            sizeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    sizeBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const value = this.getAttribute('data-value');
+                    updateCardSizes(value);
+                });
+            });
+            
+            // === HELPER FUNCTIONS ===
+            
+            // Function to update the number of cards
+            function updateCardCount(count) {
+                // Clear current cards
+                flexContainer.innerHTML = '';
+                
+                // Add new cards
+                for (let i = 1; i <= count; i++) {
+                    // Create a new card element
+                    const card = document.createElement('div');
+                    // Add all the necessary classes
+                    card.className = 'p-5 rounded-lg text-white min-w-[120px] flex flex-col justify-center items-center font-bold shadow transition-all duration-200 ease-in-out hover:-translate-y-1 hover:shadow-lg';
+                    
+                    // Set background color based on index (cycles through the colors array)
+                    const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
+                    card.style.backgroundColor = colors[(i - 1) % colors.length];
+                    
+                    // Create and add the card number element
+                    const cardNumber = document.createElement('div');
+                    cardNumber.className = 'text-2xl mb-2.5 card-number';
+                    cardNumber.textContent = i;
+                    
+                    // Create and add the card size text
+                    const cardSize = document.createElement('div');
+                    cardSize.className = 'text-xs opacity-80 card-size';
+                    cardSize.textContent = '120px';
+                    
+                    // Add the elements to the card
+                    card.appendChild(cardNumber);
+                    card.appendChild(cardSize);
+                    // Add the card to the container
+                    flexContainer.appendChild(card);
+                }
+                
+                // Apply current card size setting to maintain consistency
+                const activeSizeBtn = document.querySelector('.size-btn.active');
+                if (activeSizeBtn) {
+                    updateCardSizes(activeSizeBtn.getAttribute('data-value'));
+                }
+            }
+            
+            // Function to update card sizes
+            function updateCardSizes(sizeType) {
+                // Get all card number elements (to access their parent cards)
+                const cards = flexContainer.querySelectorAll('.card-number');
+                
+                if (sizeType === 'equal') {
+                    // Set all cards to the same size
+                    cards.forEach(card => {
+                        const parentCard = card.parentElement;
+                        parentCard.style.width = '120px';
+                        parentCard.style.height = '120px';
+                        parentCard.querySelector('.card-size').textContent = '120px';
+                    });
+                } else if (sizeType === 'different') {
+                    // Set different sizes for each card
+                    const sizes = ['100px', '150px', '180px', '120px', '200px', '140px', '160px', '130px'];
+                    
+                    cards.forEach((card, index) => {
+                        const parentCard = card.parentElement;
+                        const size = sizes[index % sizes.length];
+                        parentCard.style.width = size;
+                        parentCard.style.height = '120px';
+                        parentCard.querySelector('.card-size').textContent = size;
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>
